@@ -1,3 +1,4 @@
+require "pp"
 
 def turtles
     [
@@ -9,9 +10,11 @@ def turtles
 end
 
 def turtle_traits(turtles)
-  turtles.map do |turtle|
-    turtle[:traits].each do |trait|
-      trait
+  turtles.map do |t|
+    if t[:traits].class != Array
+      Array.new(1, t[:traits])
+    else
+      t[:traits]
     end
   end
 end
